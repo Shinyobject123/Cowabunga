@@ -3,7 +3,7 @@ import turtle
 from math import pi, cos  # import single items from a lib
 from random import *  # imports everything locally
 import random as r  # use your own keyword
-import import_me
+#import import_me
 
 
 
