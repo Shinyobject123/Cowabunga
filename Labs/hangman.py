@@ -1,5 +1,7 @@
 # Hangman game
+import random
 
+done = False
 # PSEUDOCODE
 # setup your game by doing the following
 # make a word list for your game
@@ -16,7 +18,10 @@
 # if the user gets all the correct letters, tell the user they won
 
 # ask if they want to play again
-
+word_list = ["BLE", "TABLE", "CHAIR", "BRIDGE", "PROGRAM", "LIST", "EIGHT", "WIN"]
+word = word_list[random.randrange(8)]
+word_progress = ["_" for x in range(len(word))]
+correct = 0
 gallows = [
     '''
       +---+
@@ -81,6 +86,38 @@ gallows = [
           |
     =========
     '''
-    ]
+]
+man = 0
+guesses = ["_"]
 
-print(gallows[4])
+print(gallows[man])
+for x in range(len(word_progress)):
+    print(word_progress[x], end=" ")
+while not done:
+    guess = input("\nGuess a letter: ").upper()
+    for x in range(len(guesses)):
+        if guess == guesses[x]:
+            print("Aready guessed.")
+            found = True
+        else:
+            guesses.append(guess)
+            found = False
+            for x in range(len(word_progress)):
+                if guess == word[x]:
+                    word_progress[x] = word[x]
+                    found = True
+
+
+    if found == False:
+        man += 1
+    else:
+        correct += 1
+    print(gallows[man])
+    for x in range(len(word_progress)):
+        print(word_progress[x], end=" ")
+    if man == 6:
+        print("\nYou Lose")
+        done = True
+    if correct >= len(word_progress):
+        print("\nYou Win!")
+        done = True
