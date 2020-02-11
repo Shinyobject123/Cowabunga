@@ -1,0 +1,37 @@
+# Searching
+
+file = open('../resources/super_villains.txt','r')
+print(file)
+# strip removes extra characters
+for line in file:
+    print(line.strip())
+file.close()
+
+file = open('../resources/super_villains.txt','r')
+print(file)
+
+file = open('../resources/super_villains.txt','a')
+file.write("Lee the Legendary\n")
+file.write("Rohan the ?")
+
+file.close()
+
+file = open('../resources/heroes.txt','w')
+file.write("Owen the Valliant\n")
+with open('../resources/super_villains.txt','r') as f:
+    villains = [x.strip().upper() for x in f]
+
+key = "vidar the manic".upper()
+#while i < len(villains) -1 and key != villain[i]
+
+def linear_search(key, my_list):
+    i = 0
+    # while i < (len(my_list)-1) and key.upper() !=
+
+
+key = "THEODORA THE WICKED"
+lower_bound = 0
+upper_bound = len(villains)
+found = False
+
+#while lower_bound <= upper_bound
