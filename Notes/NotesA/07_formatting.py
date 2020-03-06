@@ -44,4 +44,22 @@ for i in range(20):
 x = 6.77e11
 print(x)
 
+def f():
+    print("f")
 
+    # f() similar to infinite loop but different
+
+# Controlling recursion with depth
+def controlled(depth,max_depth):
+    print("Recursion depth:", depth)
+    if depth < max_depth:
+        controlled(depth + 1, max_depth)
+    print("Recursion depth", depth, "has closed.")
+
+
+
+import turtle
+my_turtle = turtle
+my_turtle.fillcolor('yellow')
+
+# Recursive Rectangle

@@ -2,6 +2,7 @@
 
 # use forward slashes to go into folders and .. to go "up" a folder
 import re
+import random
 
 file = open('../resources/super_villains.txt', 'r')  # open to read
 print(file)
