@@ -16,27 +16,71 @@ It has been updated with 2018 data, but not yet with 2019 unfortunately
 '''
 
 import csv
+import math
+import matplotlib.pyplot as plt
 
 with open("CTA_-_Ridership_-_Annual_Boarding_Totals (1).csv") as f:
     cr = csv.reader(f)
     data = list(cr)
 
-print(data)
-
-
 # pop header
-# get last 10 years (years)
-# get last 10 years bus
-# get last 10 years rail
-# get last 10 years total
+header = data.pop(0)
+
+years = []
+bNum = []
+rNum = []
+aNum = []
+
+print(data[0])
+for year in data:
+    try:
+        # get last 10 years
+        yr = int(year[0])
+        # decade check
+        chk = math.sqrt(yr-2009)
+        years.append(yr)
+        # get last 10 years bus
+        bus = float(year[1])
+        bNum.append(bus)
+        # get last 10 years rail
+        rail = float(year[3])
+        rNum.append(rail)
+        # get last 10 years total
+        all = bus + rail
+        aNum.append(all)
+    except:
+        print("", end ="")
+print(rNum)
+print()
+plt.figure("CTA", figsize=(6,5))
 
 # plot bus
+plt.plot(years, bNum, label="Bus")
 # plot rail
+plt.plot(years, rNum, label="Rail")
 # plot total
+plt.plot(years, aNum, label="Total")
 
 # axis
-# labels
+plt.xlabel('Year')
+plt.ylabel('Riders')
 # title
+plt.title('CTA Ridership')
 # legend (label plots)
+plt.legend()
 
 # show plot
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
